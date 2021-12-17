@@ -1,0 +1,105 @@
+<div>
+  <app-shared-title [title]="'Productos'"></app-shared-title>
+  <div class="container-button">
+    <button
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      Agregar producto
+    </button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>        
+        <th>Nombre</th>
+        <th>Valor</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.precio | currency }}</td>
+        <td>
+          <i
+            class="bx bxs-edit-alt text-primary ml-2 pointer"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            (click)="getById(producto.id)"
+          ></i>
+          <i
+            class="bx bxs-trash-alt text-danger mr-3 pointer"
+            (click)="deleteById(producto.id)"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Formulario producto</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form [formGroup]="productoForm" (ngSubmit)="saveProducto()">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-12">
+              <label>Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="nombre"
+                [ngClass]="{ 'is-invalid' : validateField('nombre') }"
+              />
+            </div>
+            <div class="col-12">
+              <label>Precio</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="precio"
+                [ngClass]="{ 'is-invalid' : validateField('precio') }"
+              />
+            </div>
+            <div class="col-12">
+              <label>Cantidad</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="cantidad"
+                [ngClass]="{ 'is-invalid' : validateField('cantidad') }"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!productoForm.valid"
+          >
+            Guardar
+          </button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

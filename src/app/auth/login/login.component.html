@@ -1,0 +1,40 @@
+<div class="container-login">
+  <div class="container-form d-flex justify-content-center align-items-center">
+    <div class="form shadow rounded">
+      <h3 class="title text-dark text-center">Bienvenido</h3>
+      <p class="text-center">Inicia sesión con tu usuario y contraseña</p>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form-group">
+          <i class="bx bx-user mr-2"></i>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Username"
+            formControlName="username"
+            [ngClass]="{ 'is-invalid' : validateField('username') }"
+          />
+        </div>
+        <div class="form-group">
+          <i class="bx bx-lock-alt mr-2"></i>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            formControlName="password"
+            [ngClass]="{ 'is-invalid' : validateField('password') }"
+          />
+        </div>
+        <div class="d-grid gap-2">
+          <button
+            type="submit"
+            class="btn btn-success btn-block"
+            [disabled]="!loginForm.valid"
+          >
+            Inciar sesión
+          </button>
+          <p>¿No estás registrado? <span class="pointer" routerLink="/register">Da click aquí</span></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

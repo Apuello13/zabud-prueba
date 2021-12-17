@@ -1,0 +1,10 @@
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+    <div class="toast-header">
+        <div [class]="'rounded mr-3 ' + message.class" style="height: 16px;width: 16px;"></div>
+        <strong class="me-auto title">Prueba Zabud</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body text">
+        {{ message.text }}
+    </div>
+</div>

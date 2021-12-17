@@ -1,0 +1,127 @@
+@import './assets/_scss/variables.scss';
+
+body{
+    font-family: $poppins;
+}
+
+//Global
+.bg-red{
+    background: $red;
+}
+
+.bg-grey{
+    background: $grey;
+}
+
+.title-card{
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+    margin-top: -2rem;
+}
+
+.container-button{
+    float: right;
+}
+
+//Auth styles
+.container-login {
+    background: url("./assets/img/bg-intro-desktop.png") no-repeat $red;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+
+    .container-form {
+        height: 100%;
+        .form {
+            background: $white;
+            height: auto;
+            width: 350px;
+            padding: 30px 20px;
+            .form-group{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                margin-bottom: 10px;
+                .form-control{
+                    border: 0;
+                    color: $black;
+                }
+            }
+        }
+    }
+}
+
+.bx{
+    font-size: 20px;
+}
+
+input::placeholder{
+    color: $black;
+}
+
+.form-control .is-invalid,
+.was-validated .form-control:invalid{
+    background: url('./assets/img/icon-error.svg') no-repeat right;
+}
+
+@media only screen and (max-width: 500px) {
+    .form {
+        background: url("./assets/img/bg-intro-mobile.png") no-repeat $red;
+    }
+}
+
+//End Styles
+
+//Events
+.pointer{
+    cursor: pointer;
+}
+
+//Override
+.btn{
+    border: 0;
+}
+
+.btn-success{
+    background: $green;
+}
+
+.btn-danger{
+    background: $red;
+}
+
+.btn-primary{
+    background: $blue;
+}
+
+.text-primary{
+    color: $blue !important;
+}
+
+.text-danger{
+    color: $red !important;
+}
+
+.active{
+    border-bottom: 2px solid $soft_orange;
+}
+
+//Alerts
+.toast {
+    position: fixed;
+    top: 10px;
+    z-index: 999999;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+
+    .toast-header {
+        color: $black;
+    }
+
+    .toast-body {
+        background: $white !important;
+        color: $black;
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,9 @@
+@import '../../../assets/_scss/variables.scss';
+
+.navbar{
+    background: $very_dark_blue !important;
+}
+
+.navbar-dark .navbar-brand{
+    color: $soft_orange !important;
+}

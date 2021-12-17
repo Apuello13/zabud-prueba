@@ -1,0 +1,33 @@
+<app-shared-title [title]="'Facturas'"></app-shared-title>
+<div class="container-button">
+  <button class="btn btn-primary">Agregar factura</button>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Número factura</th>
+      <th>Cliente</th>
+      <th>Fecha de factura</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let factura of facturas">
+      <td>{{ factura.numeroFactura }}</td>
+      <td>{{ factura.cliente }}</td>
+      <td>{{ factura.created }}</td>
+      <td>
+        <i
+          class="bx bxs-edit-alt text-primary ml-2 pointer"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          (click)="getById(factura.id)"
+        ></i>
+        <i
+          class="bx bxs-trash-alt text-danger mr-3 pointer"
+          (click)="deleteById(factura.id)"
+        ></i>
+      </td>
+    </tr>
+  </tbody>
+</table>

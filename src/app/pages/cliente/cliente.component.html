@@ -1,0 +1,128 @@
+<app-shared-title [title]="'Clientes'"></app-shared-title>
+<div class="container-button">
+  <button
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    Agregar cliente
+  </button>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Telefono</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientes">
+      <td>{{ cliente.nombre }}</td>
+      <td>{{ cliente.apellido }}</td>
+      <td>{{ cliente.telefono }}</td>
+      <td>
+        <i
+          class="bx bxs-edit-alt text-primary ml-2 pointer"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          (click)="getById(cliente.id)"
+        ></i>
+        <i
+          class="bx bxs-trash-alt text-danger mr-3 pointer"
+          (click)="deleteById(cliente.id)"
+        ></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Formulario producto</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form [formGroup]="clienteForm" (ngSubmit)="saveCliente()">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-6">
+              <label>Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="nombre"
+                [ngClass]="{ 'is-invalid': validateField('nombre') }"
+              />
+            </div>
+            <div class="col-6">
+              <label>Apellido</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="apellido"
+                [ngClass]="{ 'is-invalid': validateField('apellido') }"
+              />
+            </div>
+            <div class="col-6">
+              <label>Telefono</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="telefono"
+                [ngClass]="{ 'is-invalid': validateField('telefono') }"
+              />
+            </div>
+            <div class="col-6">
+              <label>Número de documento</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="numeroDocumento"
+                [ngClass]="{ 'is-invalid': validateField('numeroDocumento') }"
+              />
+            </div>
+            <div class="col-12">
+              <label>Email</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="email"
+                [ngClass]="{ 'is-invalid': validateField('email') }"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!clienteForm.valid"
+          >
+            Guardar
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            data-bs-dismiss="modal"
+            (click)="cleanForm()"
+          >
+            Close
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
