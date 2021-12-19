@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/home">Zabud</a>
+    <a class="navbar-brand text-yellow" routerLink="/home">Zabud</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -39,6 +39,12 @@
           >
         </li>
       </ul>
+      <div class="d-flex text-light justify-content-around" style="width: 20rem;">
+        <p class="m-0">Bienvenido {{ nombreUsuario }}</p>
+        <span class="pointer text-yellow" (click)="logOut()">
+          Cerrar sesión</span
+        >
+      </div>
     </div>
   </div>
 </nav>
