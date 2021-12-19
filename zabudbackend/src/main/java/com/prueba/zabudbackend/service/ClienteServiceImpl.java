@@ -30,11 +30,12 @@ public class ClienteServiceImpl implements ClienteService{
             if(clienteRepository.existsByNumeroDocumento(clienteDTO.getNumeroDocumento())
                     && clienteDTO.getId() == nuevoCliente){
                 error.setMensaje("Ya existe un cliente con ese numero de documento");
-            }else{
-                clienteRepository.save(clienteMapper.clienteDTOToCliente(clienteDTO));
+                return error;
             }
+            clienteRepository.save(clienteMapper.clienteDTOToCliente(clienteDTO));
         }catch(Exception e){
             e.printStackTrace();
+            error.setMensaje(e.getCause().toString());
         }
         return error;
     }
@@ -77,6 +78,20 @@ public class ClienteServiceImpl implements ClienteService{
         }catch(Exception e){
             e.printStackTrace();
             return null;
+        }
+        return optional;
+    }
+
+    @Override
+    public Optional<ClienteDTO> findByNumeroDocumento(String numeroDocumento) {
+        Optional<ClienteDTO> optional = Optional.empty();
+        try{
+            if(clienteRepository.existsByNumeroDocumento(numeroDocumento)){
+                Cliente cliente = clienteRepository.findByNumeroDocumento(numeroDocumento).orElse(null);
+                optional = Optional.of(clienteMapper.clienteToClienteDTO(cliente));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
         }
         return optional;
     }

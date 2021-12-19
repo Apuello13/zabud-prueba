@@ -3,6 +3,7 @@ package com.prueba.zabudbackend.controller;
 import com.prueba.zabudbackend.dto.ClienteDTO;
 import com.prueba.zabudbackend.dto.ErrorDTO;
 import com.prueba.zabudbackend.service.ClienteService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +38,13 @@ public class ClienteController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id){
         return clienteService.findById(id)
+                .map(cliente -> new ResponseEntity<>(cliente, HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @GetMapping("/numeroDocumento/{numeroDocumento}")
+    public ResponseEntity<?> getByNumeroDocumento(@PathVariable String numeroDocumento){
+        return clienteService.findByNumeroDocumento(numeroDocumento)
                 .map(cliente -> new ResponseEntity<>(cliente, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }

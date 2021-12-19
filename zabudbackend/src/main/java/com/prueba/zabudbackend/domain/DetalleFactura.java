@@ -10,6 +10,7 @@ public class DetalleFactura {
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
     private Integer cantidad;
+    @Column( name = "valor_unidad" )
     private Double valorUnidad;
     private Double total;
     @ManyToOne

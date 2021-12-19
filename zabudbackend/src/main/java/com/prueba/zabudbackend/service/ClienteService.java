@@ -11,4 +11,5 @@ public interface ClienteService {
     boolean deleteById(Long idCliente);
     List<ClienteDTO> findAll();
     Optional<ClienteDTO> findById(Long idCliente);
+    Optional<ClienteDTO> findByNumeroDocumento(String numeroDocumento);
 }
