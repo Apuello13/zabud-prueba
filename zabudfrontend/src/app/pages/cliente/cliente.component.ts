@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from 'src/app/core/service/alert.service';
+import { closeModal } from 'src/app/core/utils/closeModal';
 import { GenericValidateField } from 'src/app/core/utils/genericValidateField';
 import { Cliente } from '../models/cliente';
 import { ClienteService } from '../service/cliente.service';
@@ -62,6 +63,7 @@ export class ClienteComponent implements OnInit, GenericValidateField {
       () => {
         this._alert.success('Cliente creado con exito');
         this.getClientes();
+        closeModal();
       },
       (badRequest) => {
         this._alert.error(badRequest);

@@ -8,6 +8,8 @@ import { ProductoComponent } from './pages/producto/producto.component';
 import { ClienteComponent } from './pages/cliente/cliente.component';
 import { FacturaComponent } from './pages/factura/factura.component';
 import { UserGuard } from './pages/guards/user.guard';
+import { FacturaFormComponent } from './pages/factura-form/factura-form.component';
+import { NotFoundComponent } from './core/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -18,12 +20,14 @@ const routes: Routes = [
       { path: 'productos', component: ProductoComponent },
       { path: 'clientes', component: ClienteComponent },
       { path: 'facturas', component: FacturaComponent },
+      { path: 'factura-form', component: FacturaFormComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full' },
     ],
     canActivate: [UserGuard],
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

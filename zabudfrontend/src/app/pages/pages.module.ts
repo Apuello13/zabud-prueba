@@ -6,8 +6,10 @@ import { FacturaComponent } from './factura/factura.component';
 import { HomeComponent } from './home/home.component';
 import { ProductoComponent } from './producto/producto.component';
 import { ClienteService } from './service/cliente.service';
+import { DashboardService } from './service/dashboard.service';
 import { FacturaService } from './service/factura.service';
 import { ProductoService } from './service/producto.service';
+import { FacturaFormComponent } from './factura-form/factura-form.component';
 
 @NgModule({
   declarations: [
@@ -15,11 +17,13 @@ import { ProductoService } from './service/producto.service';
     ClienteComponent,
     FacturaComponent,
     HomeComponent,
+    FacturaFormComponent,
   ],
   imports: [
     SharedModule
   ],
   providers: [
+    DashboardService,
     ProductoService,
     ClienteService,
     FacturaService,

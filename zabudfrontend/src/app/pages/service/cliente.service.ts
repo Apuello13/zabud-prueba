@@ -26,6 +26,12 @@ export class ClienteService implements GenericService{
         return this.http.get<Cliente>(`${this.url}/${id}`)
             .pipe(catchError(HandleHttpError));
     }
+
+    getByNumeroDocumento(numeroDocumento : string){
+        return this.http.get<Cliente>(`${this.url}/numeroDocumento/${numeroDocumento}`)
+            .pipe(catchError(HandleHttpError));
+    }
+
     deleteById(id: number) {
         return this.http.delete(`${this.url}/${id}`)
             .pipe(catchError(HandleHttpError));

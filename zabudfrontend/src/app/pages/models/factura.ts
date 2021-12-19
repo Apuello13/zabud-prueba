@@ -5,5 +5,6 @@ export interface Factura{
     cliente: string,
     numeroFactura: string,
     productos: Producto[]
-    created: Date
+    created: string,
+    metodoPago: string
 }

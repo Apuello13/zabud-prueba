@@ -2,6 +2,7 @@ import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from 'src/app/core/service/alert.service';
+import { closeModal } from 'src/app/core/utils/closeModal';
 import { GenericValidateField } from 'src/app/core/utils/genericValidateField';
 import { Producto } from '../models/producto';
 import { ProductoService } from '../service/producto.service';
@@ -43,6 +44,7 @@ export class ProductoComponent implements OnInit, GenericValidateField {
       () => {
         this._alert.success('Producto creado con exito');
         this.getProductos();
+        closeModal();
       },
       (badRequest) => {
         this._alert.error(badRequest);

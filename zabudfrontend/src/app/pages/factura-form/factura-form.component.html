@@ -1,0 +1,55 @@
+<app-shared-title [title]="'Formulario factura'"></app-shared-title>
+<form [formGroup]="facturaForm" (ngSubmit)="saveFactura()">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label>Cliente</label>
+          <select
+            class="form-control"
+            formControlName="idCliente"
+            [ngClass]="{ 'is-invalid': validateField('idCliente') }"
+          >
+            <option value="">Seleccione...</option>
+            <option *ngFor="let cliente of clientes" [value]="cliente.id">
+              {{ cliente.nombre }} {{ cliente.apellido }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-group">
+          <label>Producto</label>
+          <select class="form-control" multiple formControlName="productos">
+            <option *ngFor="let producto of productos" [value]="producto.id">
+              {{ producto.nombre }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-group">
+          <label>Método de pago</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="metodoPago"
+            [ngClass]="{ 'is-invalid': validateField('metodoPago') }"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!facturaForm.valid"
+    >
+      Guardar
+    </button>
+    <button type="button" class="btn btn-danger" routerLink="/facturas">
+      Cancelar
+    </button>
+  </div>
+</form>
