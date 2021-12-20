@@ -1,9 +1,10 @@
-package com.prueba.zabudbackend.mapper;
+package com.prueba.zabudbackend.mapper.impl;
 
 import com.prueba.zabudbackend.domain.DetalleFactura;
 import com.prueba.zabudbackend.domain.Factura;
 import com.prueba.zabudbackend.domain.Producto;
 import com.prueba.zabudbackend.dto.ProductoDTO;
+import com.prueba.zabudbackend.mapper.DetalleFacturaMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Component
-public class DetalleFacturaMapperImpl implements DetalleFacturaMapper{
+public class DetalleFacturaMapperImpl implements DetalleFacturaMapper {
     @Override
     public DetalleFactura facturaToDetalleFactura(Factura factura, Producto producto) {
         if(factura == null && producto == null)

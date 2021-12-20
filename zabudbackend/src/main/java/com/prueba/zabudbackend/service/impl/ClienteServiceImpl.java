@@ -1,10 +1,11 @@
-package com.prueba.zabudbackend.service;
+package com.prueba.zabudbackend.service.impl;
 
 import com.prueba.zabudbackend.domain.Cliente;
 import com.prueba.zabudbackend.dto.ClienteDTO;
 import com.prueba.zabudbackend.dto.ErrorDTO;
 import com.prueba.zabudbackend.mapper.ClienteMapper;
 import com.prueba.zabudbackend.repository.ClienteRepository;
+import com.prueba.zabudbackend.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class ClienteServiceImpl implements ClienteService{
+public class ClienteServiceImpl implements ClienteService {
     //Repositorios
     @Autowired
     private ClienteRepository clienteRepository;

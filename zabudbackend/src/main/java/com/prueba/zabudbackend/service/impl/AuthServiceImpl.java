@@ -1,4 +1,4 @@
-package com.prueba.zabudbackend.service;
+package com.prueba.zabudbackend.service.impl;
 
 import com.prueba.zabudbackend.domain.Cajero;
 import com.prueba.zabudbackend.domain.Usuario;
@@ -8,11 +8,12 @@ import com.prueba.zabudbackend.dto.UserDTO;
 import com.prueba.zabudbackend.mapper.AuthMapper;
 import com.prueba.zabudbackend.repository.CajeroRepository;
 import com.prueba.zabudbackend.repository.UsuarioRepository;
+import com.prueba.zabudbackend.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AuthServiceImpl implements AuthService{
+public class AuthServiceImpl implements AuthService {
     //Repositorios
     @Autowired
     private CajeroRepository cajeroRepository;

@@ -1,4 +1,4 @@
-package com.prueba.zabudbackend.service;
+package com.prueba.zabudbackend.service.impl;
 
 import com.prueba.zabudbackend.domain.DetalleFactura;
 import com.prueba.zabudbackend.domain.Factura;
@@ -11,6 +11,8 @@ import com.prueba.zabudbackend.mapper.FacturaMapper;
 import com.prueba.zabudbackend.mapper.ProductoMapper;
 import com.prueba.zabudbackend.repository.DetalleFacturaRepository;
 import com.prueba.zabudbackend.repository.FacturaRepository;
+import com.prueba.zabudbackend.service.FacturaService;
+import com.prueba.zabudbackend.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +23,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class FacturaServiceImpl implements FacturaService{
+public class FacturaServiceImpl implements FacturaService {
     //Repositorios
     @Autowired
     private FacturaRepository facturaRepository;

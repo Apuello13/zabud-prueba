@@ -1,10 +1,11 @@
-package com.prueba.zabudbackend.service;
+package com.prueba.zabudbackend.service.impl;
 
 import com.prueba.zabudbackend.domain.Producto;
 import com.prueba.zabudbackend.dto.ErrorDTO;
 import com.prueba.zabudbackend.dto.ProductoDTO;
 import com.prueba.zabudbackend.mapper.ProductoMapper;
 import com.prueba.zabudbackend.repository.ProductoRepository;
+import com.prueba.zabudbackend.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class ProductoServiceImpl implements ProductoService{
+public class ProductoServiceImpl implements ProductoService {
     @Autowired
     private ProductoRepository productoRepository;
     @Autowired

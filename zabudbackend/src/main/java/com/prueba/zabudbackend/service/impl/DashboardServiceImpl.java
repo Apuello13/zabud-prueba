@@ -1,11 +1,15 @@
-package com.prueba.zabudbackend.service;
+package com.prueba.zabudbackend.service.impl;
 
 import com.prueba.zabudbackend.dto.DashboardDTO;
+import com.prueba.zabudbackend.service.ClienteService;
+import com.prueba.zabudbackend.service.DashboardService;
+import com.prueba.zabudbackend.service.FacturaService;
+import com.prueba.zabudbackend.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DashboardServiceImpl implements DashboardService{
+public class DashboardServiceImpl implements DashboardService {
     @Autowired
     private FacturaService facturaService;
     @Autowired

@@ -1,13 +1,14 @@
-package com.prueba.zabudbackend.mapper;
+package com.prueba.zabudbackend.mapper.impl;
 
 import com.prueba.zabudbackend.domain.Cajero;
 import com.prueba.zabudbackend.domain.Usuario;
 import com.prueba.zabudbackend.dto.RegisterDTO;
 import com.prueba.zabudbackend.dto.UserDTO;
+import com.prueba.zabudbackend.mapper.AuthMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AuthMapperImpl implements AuthMapper{
+public class AuthMapperImpl implements AuthMapper {
 
     @Override
     public UserDTO cajeroToUserDTO(Cajero cajero) {

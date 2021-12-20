@@ -1,13 +1,14 @@
-package com.prueba.zabudbackend.mapper;
+package com.prueba.zabudbackend.mapper.impl;
 
 import com.prueba.zabudbackend.domain.Producto;
 import com.prueba.zabudbackend.dto.ProductoDTO;
+import com.prueba.zabudbackend.mapper.ProductoMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
 @Component
-public class ProductoMapperImpl implements ProductoMapper{
+public class ProductoMapperImpl implements ProductoMapper {
     @Override
     public Producto productoDTOToProducto(ProductoDTO productoDTO) {
         if(productoDTO == null)

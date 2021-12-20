@@ -1,17 +1,18 @@
-package com.prueba.zabudbackend.mapper;
+package com.prueba.zabudbackend.mapper.impl;
 
 import com.prueba.zabudbackend.domain.Cajero;
 import com.prueba.zabudbackend.domain.Cliente;
 import com.prueba.zabudbackend.domain.Factura;
 import com.prueba.zabudbackend.dto.FacturaDTO;
 import com.prueba.zabudbackend.dto.FacturaTableDTO;
+import com.prueba.zabudbackend.mapper.FacturaMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.UUID;
 
 @Component
-public class FacturaMapperImpl implements FacturaMapper{
+public class FacturaMapperImpl implements FacturaMapper {
     UUID uuid = UUID.randomUUID();
     @Override
     public Factura faturaDTOToFactura(FacturaDTO facturaDTO) {

@@ -1,13 +1,14 @@
-package com.prueba.zabudbackend.mapper;
+package com.prueba.zabudbackend.mapper.impl;
 
 import com.prueba.zabudbackend.domain.Cliente;
 import com.prueba.zabudbackend.dto.ClienteDTO;
+import com.prueba.zabudbackend.mapper.ClienteMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
 @Component
-public class ClienteMapperImpl implements ClienteMapper{
+public class ClienteMapperImpl implements ClienteMapper {
     @Override
     public Cliente clienteDTOToCliente(ClienteDTO clienteDTO) {
         if(clienteDTO == null)
